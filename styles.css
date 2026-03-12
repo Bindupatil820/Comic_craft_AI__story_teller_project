@@ -1,0 +1,606 @@
+/* Comic Craft AI - Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', cursive;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.main-container {
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+/* Header Section */
+.header-section {
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    padding: 40px;
+    text-align: center;
+    color: white;
+}
+
+.header-section h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 3.5em;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+}
+
+.header-section p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Form Section */
+.form-section {
+    padding: 40px;
+}
+
+.form-group-full {
+    margin-bottom: 25px;
+}
+
+.form-group-full label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 1.3em;
+    color: #2c3e50;
+}
+
+.form-group-full label i {
+    margin-right: 8px;
+    color: #ff6b6b;
+}
+
+/* Genre Tags */
+.genre-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.genre-tag {
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: #f0f0f0;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    font-weight: bold;
+}
+
+.genre-tag:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.genre-tag.active {
+    background: #ff6b6b;
+    color: white;
+    border-color: #ff6b6b;
+}
+
+/* Story Input */
+.story-input {
+    width: 100%;
+    padding: 18px 22px;
+    font-size: 1.2em;
+    border: 3px solid #e0e0e0;
+    border-radius: 15px;
+    font-family: 'Comic Neue', cursive;
+    transition: all 0.3s;
+}
+
+.story-input:focus {
+    outline: none;
+    border-color: #4ecdc4;
+    box-shadow: 0 0 20px rgba(78,205,196,0.2);
+}
+
+/* Examples Row */
+.examples-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.example-chip {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+}
+
+.example-chip:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+}
+
+/* Panel Selector */
+.panel-selector {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.panel-option {
+    flex: 1;
+    padding: 15px;
+    border-radius: 15px;
+    background: #f8f8f8;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 3px solid transparent;
+}
+
+.panel-option:hover {
+    background: #f0f0f0;
+}
+
+.panel-option.active {
+    border-color: #4ecdc4;
+    background: white;
+    box-shadow: 0 5px 20px rgba(78,205,196,0.2);
+}
+
+.panel-option .number {
+    font-family: 'Bangers', cursive;
+    font-size: 2em;
+    color: #4ecdc4;
+}
+
+.panel-option .label {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Generate Button */
+.generate-button {
+    width: 100%;
+    padding: 20px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.8em;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(255,107,107,0.3);
+}
+
+.generate-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255,107,107,0.4);
+}
+
+.generate-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Loading Section */
+.loading-section {
+    display: none;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.loading-section.active {
+    display: block;
+}
+
+.loading-spinner {
+    width: 70px;
+    height: 70px;
+    border: 5px solid #f0f0f0;
+    border-top-color: #ff6b6b;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 1.3em;
+    color: #666;
+}
+
+/* Story Output */
+.story-output {
+    display: none;
+    padding: 40px;
+    background: #f9f9f9;
+}
+
+.story-output.active {
+    display: block;
+}
+
+/* Download Section */
+.download-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.download-btn {
+    padding: 15px 30px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.3em;
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(78,205,196,0.3);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(78,205,196,0.4);
+}
+
+/* Story Title */
+.story-title {
+    font-family: 'Bangers', cursive;
+    font-size: 2.5em;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.story-moral {
+    text-align: center;
+    font-size: 1.2em;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Narrative Section - Enhanced for Descriptive Narrative */
+.narrative-section {
+    margin-bottom: 30px;
+}
+
+.narrative-section h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.narrative-section h3 i {
+    color: #ff6b6b;
+    margin-right: 8px;
+}
+
+.narrative-box {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    line-height: 2;
+    font-size: 1.1em;
+    color: #444;
+    border-left: 5px solid #4ecdc4;
+}
+
+/* Story Summary */
+.story-summary {
+    background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.story-summary h4 {
+    font-family: 'Bangers', cursive;
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.story-summary p {
+    font-size: 1.1em;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+/* Story Chapters */
+.story-chapters {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.story-chapters h4 {
+    font-family: 'Bangers', cursive;
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.chapter {
+    padding: 20px;
+    margin-bottom: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.chapter:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.chapter h5 {
+    font-family: 'Bangers', cursive;
+    font-size: 1.3em;
+    color: #667eea;
+    margin-bottom: 12px;
+}
+
+.chapter-narration {
+    font-size: 1.05em;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.chapter-dialogue {
+    background: #fff3cd;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-style: italic;
+    color: #555;
+    border-left: 3px solid #ffc107;
+}
+
+/* Lesson Section */
+.lesson-section {
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.lesson-section h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.lesson-section h3 i {
+    color: #f39c12;
+    margin-right: 8px;
+}
+
+.lesson-section p {
+    font-size: 1.1em;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+/* Characters Section */
+.characters-section {
+    margin-bottom: 30px;
+}
+
+.characters-section h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.characters-section h3 i {
+    color: #9b59b6;
+    margin-right: 8px;
+}
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.character-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.character-avatar {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.character-card h4 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.character-role {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    margin-bottom: 8px;
+}
+
+.character-card p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* Panels Section */
+.panels-section h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.panels-section h3 i {
+    color: #e74c3c;
+    margin-right: 8px;
+}
+
+.panels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.panel-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.panel-card-header {
+    background: #2c3e50;
+    color: white;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-card-header .panel-num {
+    font-family: 'Bangers', cursive;
+    font-size: 1.2em;
+    color: #ffe66d;
+}
+
+.panel-card-header .panel-type {
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+.panel-image-container {
+    aspect-ratio: 4/3;
+    background: #e0e0e0;
+    overflow: hidden;
+}
+
+.panel-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.panel-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #999;
+}
+
+.panel-placeholder i {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.panel-text {
+    padding: 15px;
+}
+
+.panel-narration {
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #444;
+}
+
+.panel-dialogue {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* New Story Button */
+.new-story-btn {
+    display: block;
+    width: 200px;
+    margin: 30px auto 0;
+    padding: 15px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.3em;
+    background: #4ecdc4;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.new-story-btn:hover {
+    background: #3dbdb5;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-section h1 {
+        font-size: 2.5em;
+    }
+    
+    .form-section, .story-output {
+        padding: 20px;
+    }
+    
+    .panel-selector {
+        flex-direction: column;
+    }
+    
+    .panels-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .characters-grid {
+        grid-template-columns: 1fr;
+    }
+}

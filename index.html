@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Craft AI - Create Your Story</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="main-container">
+            <!-- Header -->
+            <div class="header-section">
+                <h1>⚡ Comic Craft AI</h1>
+                <p>Create amazing comic stories with the power of AI!</p>
+            </div>
+            
+            <!-- Input Form -->
+            <div class="form-section" id="inputSection">
+                <!-- Genre Selection -->
+                <div class="form-group-full">
+                    <label><i class="fas fa-theater-masks"></i> Choose Your Genre</label>
+                    <div class="genre-tags" id="genreTags">
+                        <div class="genre-tag active" data-genre="fantasy">🦄 Fantasy</div>
+                        <div class="genre-tag" data-genre="mythology">🪔 Mythology</div>
+                        <div class="genre-tag" data-genre="sci_fi">🚀 Sci-Fi</div>
+                        <div class="genre-tag" data-genre="adventure">🗺️ Adventure</div>
+                        <div class="genre-tag" data-genre="mystery">🔍 Mystery</div>
+                        <div class="genre-tag" data-genre="friendship">🤝 Friendship</div>
+                        <div class="genre-tag" data-genre="fairy_tale">🏰 Fairy Tale</div>
+                    </div>
+                </div>
+                
+                <!-- Story Idea Input -->
+                <div class="form-group-full">
+                    <label><i class="fas fa-pencil-alt"></i> Your Story Idea</label>
+                    <input type="text" class="story-input" id="storyPrompt" placeholder="e.g., A brave little mouse who saves the forest...">
+                </div>
+                
+                <!-- Example Prompts -->
+                <div class="form-group-full">
+                    <label><i class="fas fa-lightbulb"></i> Try These Ideas</label>
+                    <div class="examples-row" id="examplesRow">
+                        <!-- Examples will be loaded dynamically -->
+                    </div>
+                </div>
+                
+                <!-- Panel Selection -->
+                <div class="form-group-full">
+                    <label><i class="fas fa-images"></i> Number of Panels</label>
+                    <div class="panel-selector" id="panelSelector">
+                        <div class="panel-option" data-panels="3">
+                            <div class="number">3</div>
+                            <div class="label">Quick Story</div>
+                        </div>
+                        <div class="panel-option active" data-panels="5">
+                            <div class="number">5</div>
+                            <div class="label">Standard</div>
+                        </div>
+                        <div class="panel-option" data-panels="7">
+                            <div class="number">7</div>
+                            <div class="label">Full Story</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Generate Button -->
+                <button class="generate-button" id="generateBtn" onclick="generateStory()">
+                    ✨ Generate My Story
+                </button>
+            </div>
+            
+            <!-- Loading -->
+            <div class="loading-section" id="loadingSection">
+                <div class="loading-spinner"></div>
+                <p class="loading-text" id="loadingText">Creating your magical story...</p>
+            </div>
+            
+            <!-- Story Output -->
+            <div class="story-output" id="storyOutput">
+                <!-- Download Button -->
+                <div class="download-section">
+                    <button class="download-btn" onclick="downloadStory()">
+                        <i class="fas fa-download"></i> Download Story as PDF
+                    </button>
+                </div>
+                
+                <!-- Story Title -->
+                <h2 class="story-title" id="storyTitle">My Amazing Story</h2>
+                <p class="story-moral" id="storyMoral"></p>
+                
+                <!-- Full Narrative Section -->
+                <div class="narrative-section">
+                    <h3><i class="fas fa-book-open"></i> Complete Story</h3>
+                    <div class="narrative-box" id="narrativeBox">
+                        <!-- Full narrative will be displayed here -->
+                    </div>
+                </div>
+                
+                <!-- Real Life Lesson -->
+                <div class="lesson-section" id="lessonSection">
+                    <h3><i class="fas fa-lightbulb"></i> Real Life Lesson</h3>
+                    <p id="lessonText"></p>
+                </div>
+                
+                <!-- Characters -->
+                <div class="characters-section" id="charactersSection">
+                    <h3><i class="fas fa-users"></i> Characters</h3>
+                    <div class="characters-grid" id="charactersGrid">
+                        <!-- Characters will be displayed here -->
+                    </div>
+                </div>
+                
+                <!-- Panels -->
+                <div class="panels-section">
+                    <h3><i class="fas fa-images"></i> Comic Panels</h3>
+                    <div class="panels-grid" id="panelsGrid"></div>
+                </div>
+                
+                <button class="new-story-btn" onclick="newStory()">🎨 Create New Story</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
